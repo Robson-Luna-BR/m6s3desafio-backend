@@ -18,7 +18,7 @@ class Client {
   @Column({ type: "varchar", length: 45, unique: true })
   email: string;
 
-  @Column({ type: "varchar", length: 45, unique: true })
+  @Column({ type: "varchar", length: 45})
   phoneNumber: string;
 
   @CreateDateColumn({ type: "date" })
