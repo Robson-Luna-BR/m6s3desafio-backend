@@ -19,12 +19,8 @@ export const validateTokenInfo = (
   jwt.verify(token, process.env.SECRET_KEY!, (error: any, decoded: any) => {
     if (error) throw new AppError(error.message, 401);
 
-   
-
     res.locals.id = decoded.sub;
     res.locals.admin = decoded.admin;
-
-   
-    return next();
   });
+  return next();
 };

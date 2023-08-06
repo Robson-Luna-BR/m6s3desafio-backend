@@ -36,13 +36,11 @@ export const createClientService = async (
     },
   });
 
-  if(!checkClient){
+  if (!checkClient) {
     const newClient = clientRepository.create(clientData);
-  
-    await clientRepository.save(newClient);
-      }
-    
 
+    await clientRepository.save(newClient);
+  }
 
   const listResponseSelect = await userRepository.findOne({
     // @ts-ignore
@@ -53,8 +51,6 @@ export const createClientService = async (
       client: true,
     },
   });
-
- 
 
   const clientResponse = userResponseSchema.parse(listResponseSelect);
 

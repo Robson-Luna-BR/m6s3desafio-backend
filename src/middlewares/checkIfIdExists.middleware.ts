@@ -9,16 +9,16 @@ export const checkIfIdExists = async (
   res: Response,
   next: NextFunction
 ): Promise<void> => {
-  const clientRepository: Repository<Client> = AppDataSource.getRepository(Client);
+  const clientRepository: Repository<Client> =
+    AppDataSource.getRepository(Client);
 
   const id = Number(req.params.id);
 
   const checkClientId: Client | null = await clientRepository.findOne({
     // @ts-ignore
-    where:{
-
+    where: {
       id: id,
-    }
+    },
   });
 
   if (!checkClientId) {

@@ -22,7 +22,6 @@ export const listUsersService = async (id: number) => {
       client: true,
     },
   });
-  console.log(users, "//////////////////////////////////////////////////")
 
   const userResponse = userResponseSchema.parse(users);
 

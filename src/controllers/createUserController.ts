@@ -9,7 +9,7 @@ export const createUserController = async (
 ): Promise<Response> => {
   const user: TUserRequest = req.body;
 
-  const newUser: TUserResponse = await createUserService(user);
+  const newUser = await createUserService(user);
 
   return res.status(201).json(newUser);
 };

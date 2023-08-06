@@ -8,6 +8,7 @@ import User from "../entities/user.entity";
 import { AppDataSource } from "../data-source";
 import {
   updateValidatedUserSchema,
+  userListSchema,
   userResponseSchema,
 } from "../schemas/user.schemas";
 
@@ -32,6 +33,6 @@ export const updateUserService = async (
 
   await userRepository.save(newUser);
 
-  const updatedUser = userResponseSchema.parse(newUser);
+  const updatedUser = userListSchema.parse(newUser);
   return updatedUser;
 };

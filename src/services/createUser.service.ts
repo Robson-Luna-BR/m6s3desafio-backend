@@ -2,7 +2,7 @@ import { Repository } from "typeorm";
 
 import { TUserRequest, TUserResponse } from "../interfaces/user.interfaces";
 import { AppDataSource } from "../data-source";
-import { userResponseSchema } from "../schemas/user.schemas";
+import { userListSchema, userResponseSchema } from "../schemas/user.schemas";
 import User from "../entities/user.entity";
 
 export const createUserService = async (user: TUserRequest) => {
@@ -12,7 +12,7 @@ export const createUserService = async (user: TUserRequest) => {
 
   await userRepository.save(newUser);
 
-  const userResponse = userResponseSchema.parse(newUser);
+  const userResponse = userListSchema.parse(newUser);
 
   return userResponse;
 };
