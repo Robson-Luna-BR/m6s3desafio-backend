@@ -4,9 +4,11 @@ import {
   BeforeUpdate,
   Column,
   CreateDateColumn,
+  DeleteDateColumn,
   Entity,
   OneToMany,
   PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from "typeorm";
 import Client from "./client.entity";
 
@@ -29,6 +31,12 @@ class User {
 
   @CreateDateColumn({ type: "date" })
   createdAt: string | Date;
+
+  @UpdateDateColumn({ type: "date" })
+  updatedAt: string | Date;
+
+  @DeleteDateColumn({ nullable: true, type: "date" })
+  deletedAt?: string | Date | null | undefined;
 
   @OneToMany(() => Client, (client) => client.user)
   client: Client[];

@@ -1,9 +1,11 @@
 import {
   Column,
   CreateDateColumn,
+  DeleteDateColumn,
   Entity,
   ManyToOne,
   PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from "typeorm";
 import User from "./user.entity";
 
@@ -23,6 +25,12 @@ class Client {
 
   @CreateDateColumn({ type: "date" })
   createdAt: string | Date;
+
+  @UpdateDateColumn({ type: "date" })
+  updatedAt: string | Date;
+
+  @DeleteDateColumn({ nullable: true, type: "date" })
+  deletedAt?: string | Date | null | undefined;
 
   @ManyToOne(() => User, (user) => user.client)
   user: User;

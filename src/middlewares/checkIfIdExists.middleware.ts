@@ -13,9 +13,12 @@ export const checkIfIdExists = async (
 
   const id = Number(req.params.id);
 
-  const checkUserId: User | null = await userRepository.findOneBy({
+  const checkUserId: User | null = await userRepository.findOne({
     // @ts-ignore
-    id: id,
+    where:{
+
+      id: id,
+    }
   });
 
   if (!checkUserId) {
