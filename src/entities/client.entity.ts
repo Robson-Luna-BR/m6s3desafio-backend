@@ -17,7 +17,7 @@ class Client {
   @Column({ type: "varchar", length: 60 })
   name: string;
 
-  @Column({ type: "varchar", length: 45, unique: true })
+  @Column({ type: "varchar", length: 45 })
   email: string;
 
   @Column({ type: "varchar", length: 45})

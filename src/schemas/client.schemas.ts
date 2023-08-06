@@ -4,18 +4,17 @@ export const clientSchema = z.object({
     id: z.number(),
     name: z.string().max(60),
     email: z.string().max(45).email(),
-    password: z.string().max(120),
     phoneNumber: z.string().max(45),
     createdAt: z.date().or(z.string()),
   });
   
   export const clientResponseSchema = clientSchema.omit({
-    password: true,
+   
   });
   
   export const clientListSchema = clientSchema
     .omit({
-      password: true,
+      
     })
     .array();
   
