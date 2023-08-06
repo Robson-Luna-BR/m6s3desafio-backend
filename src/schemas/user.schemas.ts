@@ -1,4 +1,5 @@
 import { z } from "zod";
+import Client from "../entities/client.entity";
 
 export const userSchema = z.object({
   id: z.number(),
@@ -9,7 +10,20 @@ export const userSchema = z.object({
   createdAt: z.date().or(z.string()),
 });
 
-export const userResponseSchema = userSchema.omit({
+export const userListOneSchema= z.object({
+  id: z.number(),
+  name: z.string().max(60),
+  email: z.string().max(45).email(),
+  password: z.string().max(120),
+  phoneNumber: z.string().max(45),
+  createdAt: z.date().or(z.string()),
+  client:z.object ({id: z.number(),
+  name: z.string().max(60),
+  email: z.string().max(45).email(),
+  phoneNumber: z.string().max(45),
+  createdAt: z.date().or(z.string()),}).array()
+});
+export const userResponseSchema = userListOneSchema.omit({
   password: true,
 });
 

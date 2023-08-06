@@ -8,6 +8,7 @@ import { checkIfIdExists } from "../middlewares/checkIfIdExists.middleware";
 import { updateUserController } from "../controllers/updateUserController";
 import { checkIfUserIsOwnerOrAdm } from "../middlewares/checkIfUserIsOwnerOrAdm.middleware";
 import { deleteUserController } from "../controllers/deleteUserController";
+import { listUsersController } from "../controllers/listUserController";
 
 export const userRoutes: Router = Router();
 
@@ -17,6 +18,8 @@ userRoutes.post(
   checkIfEmailAlreadyExist,
   createUserController
 );
+userRoutes.get("/:id", validateTokenInfo, listUsersController);
+
 userRoutes.patch(
   "/:id",
   checkIfIdExists,
