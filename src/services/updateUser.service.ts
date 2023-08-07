@@ -23,7 +23,7 @@ export const updateUserService = async (
 
   const oldUserData: User | null = await userRepository.findOneBy({
     // @ts-ignore
-    id: id,
+      id: id,
   });
 
   const newUser: any = {
