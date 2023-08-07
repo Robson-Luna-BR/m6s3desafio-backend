@@ -185,9 +185,10 @@ exemplo de retorno:
 ####
 Para edição de cliente, é necessário um patch na rota:
 
-http://localhost:3000/client/id
+http://localhost:3000/client/id/user/userId
 
-sendo o id o numero do cliente ao qual se pretende fazer a alteração
+sendo userId o numero do id do usuário ao qual o cliente pertence
+sendo o id o numero de id do cliente ao qual se pretende fazer a alteração
 ***é necessário a utilização de token do usuário para que a rota funcione
 
 exemplo de requisição:
@@ -211,8 +212,9 @@ exemplo de requisição:
 ### 
 Para deleção de um cliente é necessário fazer um delete na rota:
 
-http://localhost:3000/client/id
+http://localhost:3000/client/id/user/userId
 
+sendo userId o numero do id do usuário ao qual o cliente pertence
 sendo o id o número do cliente a ser deletado
 ***é necessário enviar o token do usuário logado para fazer a deleção do cliente
 
