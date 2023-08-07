@@ -24,5 +24,8 @@ export const checkIfClientIdExists = async (
   if (!checkClientId) {
     throw new AppError("User not found", 404);
   }
+
+  console.log("lala")
   next();
+  
 };
