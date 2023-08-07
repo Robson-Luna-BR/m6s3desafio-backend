@@ -27,10 +27,11 @@ export const loginUserService = async (loginData: TLogin) => {
     throw new AppError("Invalid credentials", 401);
   }
 
-  const token = jwt.sign({ email: findUser.email }, process.env.SECRET_KEY!, {
+  const token = jwt.sign({ sub: findUser.id,  }, process.env.SECRET_KEY!, {
     expiresIn: "1d",
   });
 
+  console.log(token)
   let response = [token, findUser];
 
   return response;

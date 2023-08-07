@@ -24,6 +24,7 @@ userRoutes.patch(
   "/:id",
   checkIfIdExists,
   checkIfEmailAlreadyExist,
+  
   validateTokenInfo,
   updateUserController
 );
