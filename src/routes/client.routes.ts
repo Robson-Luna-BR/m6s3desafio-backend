@@ -9,6 +9,7 @@ import { deleteClientController } from "../controllers/deleteClientController";
 import { checkIfClientIdExists } from "../middlewares/checkIfClientIdExists.middleware";
 import {checkIfEmailAlreadyExistClient} from "../middlewares/checkIfEmailAlreadyExistClient.middleware "
 import { checkIfUserIsOwnerOrAdm } from "../middlewares/checkIfUserIsOwnerOrAdm.middleware";
+import { checkIfClientBelongsToUser } from "../middlewares/checkIfClientBelongsToUser";
 
 
 export const clientRoutes: Router = Router();
