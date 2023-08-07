@@ -8,6 +8,7 @@ import {
   UpdateDateColumn,
 } from "typeorm";
 import User from "./user.entity";
+import { getRounds, hashSync } from "bcryptjs";
 
 @Entity("clients")
 class Client {
@@ -34,6 +35,8 @@ class Client {
 
   @ManyToOne(() => User, (user) => user.client)
   user: User;
+
+
 }
 
 export default Client;

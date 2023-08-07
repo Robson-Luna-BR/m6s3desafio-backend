@@ -11,6 +11,7 @@ import {
   userListSchema,
   userResponseSchema,
 } from "../schemas/user.schemas";
+import { hashSync } from "bcryptjs";
 
 export const updateUserService = async (
   updateUser: TUpdateRequestUser,
@@ -26,6 +27,8 @@ export const updateUserService = async (
       id: id,
   });
 
+  validUser.password = hashSync(validUser.password!, 10)
+  
   const newUser: any = {
     ...oldUserData,
     ...validUser,
