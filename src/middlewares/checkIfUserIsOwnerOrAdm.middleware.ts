@@ -9,6 +9,8 @@ export const checkIfUserIsOwnerOrAdm = (
   const patchId = req.params.id;
   const userId = res.locals.id;
 
+  console.log(userId,"user", patchId, "token")
+
   if (patchId != userId) {
     throw new AppError("Insufficient permission", 403);
   }
