@@ -14,10 +14,10 @@ class Client {
   @PrimaryGeneratedColumn("increment")
   id: "number";
 
-  @Column({ type: "varchar", length: 60 })
+  @Column({ type: "varchar", length: 60, unique: true })
   name: string;
 
-  @Column({ type: "varchar", length: 45 })
+  @Column({ type: "varchar", length: 45, unique: true })
   email: string;
 
   @Column({ type: "varchar", length: 45 })

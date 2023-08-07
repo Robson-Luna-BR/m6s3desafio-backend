@@ -4,7 +4,7 @@ import { AppDataSource } from "../data-source";
 import { AppError } from "../error";
 import Client from "../entities/client.entity";
 
-export const checkIfIdExists = async (
+export const checkIfClientIdExists = async (
   req: Request,
   res: Response,
   next: NextFunction

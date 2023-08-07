@@ -4,14 +4,16 @@ import { Repository } from "typeorm";
 import User from "../entities/user.entity";
 import { AppDataSource } from "../data-source";
 import { AppError } from "../error";
+import Client from "../entities/client.entity";
+import { TClientRequest } from "../interfaces/client.interfaces";
 
-export const checkIfEmailAlreadyExist = async (
+export const checkIfEmailAlreadyExistClient = async (
   req: Request,
   res: Response,
   next: NextFunction
 ): Promise<void> => {
-  const userRepository: Repository<User> = AppDataSource.getRepository(User);
-  const checkEmail: TUserRequest | null = await userRepository.findOneBy({
+  const userRepository: Repository<Client> = AppDataSource.getRepository(Client);
+  const checkEmail: TClientRequest | null = await userRepository.findOneBy({
     email: req.body.email,
   });
 
@@ -19,7 +21,7 @@ export const checkIfEmailAlreadyExist = async (
     throw new AppError("Email already exists", 409);
   }
 
-  const checkName: TUserRequest | null = await userRepository.findOneBy({
+  const checkName: TClientRequest | null = await userRepository.findOneBy({
     name: req.body.name,
   });
 
