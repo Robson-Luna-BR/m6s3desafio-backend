@@ -18,7 +18,7 @@ userRoutes.post(
   checkIfEmailAlreadyExist,
   createUserController
 );
-userRoutes.get("/:id", validateTokenInfo, listUsersController);
+userRoutes.get("/:id", listUsersController);
 
 userRoutes.patch(
   "/:id",

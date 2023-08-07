@@ -6,13 +6,16 @@ import { AppError } from "../error";
 import { compare } from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-export const loginUserService = async (loginData: TLogin): Promise<string> => {
+export const loginUserService = async (loginData: TLogin) => {
   const userRepository: Repository<User> = AppDataSource.getRepository(User);
 
   const findUser: User | null = await userRepository.findOne({
     where: {
       email: loginData.email,
     },
+    relations:{
+      client: true
+    }
   });
 
   if (!findUser) {
@@ -28,5 +31,8 @@ export const loginUserService = async (loginData: TLogin): Promise<string> => {
     expiresIn: "1d",
   });
 
-  return token;
+  let response = [token, findUser ]
+   console.log(response[1], "///////////////////////////////")
+
+  return response;
 };
