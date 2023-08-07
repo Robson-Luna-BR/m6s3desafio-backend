@@ -26,6 +26,6 @@ export const checkIfEmailAlreadyExist = async (
   if (checkName) {
     throw new AppError("Name already exists", 409);
   }
-  console.log("lala")
+
   return next();
 };
