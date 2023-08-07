@@ -9,6 +9,9 @@ exemplo do arquivo .env.example.
 
 
 ####
+******As propriedades name e email são únicas, tanto para usuários quanto para clientes
+
+####
 
 Para criação de usuários, é esperado o seguinte corpo da requisição:
 
