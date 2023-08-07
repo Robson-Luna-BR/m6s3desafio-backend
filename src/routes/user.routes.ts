@@ -24,13 +24,14 @@ userRoutes.patch(
   "/:id",
   checkIfIdExists,
   checkIfEmailAlreadyExist,
-  
   validateTokenInfo,
+  checkIfUserIsOwnerOrAdm,
   updateUserController
 );
 userRoutes.delete(
   "/:id",
   checkIfIdExists,
   validateTokenInfo,
+  checkIfUserIsOwnerOrAdm,
   deleteUserController
 );
