@@ -12,7 +12,8 @@ export const checkIfEmailAlreadyExistClient = async (
   res: Response,
   next: NextFunction
 ): Promise<void> => {
-  const userRepository: Repository<Client> = AppDataSource.getRepository(Client);
+  const userRepository: Repository<Client> =
+    AppDataSource.getRepository(Client);
   const checkEmail: TClientRequest | null = await userRepository.findOneBy({
     email: req.body.email,
   });

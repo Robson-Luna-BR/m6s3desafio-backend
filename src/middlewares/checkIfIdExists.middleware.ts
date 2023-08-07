@@ -1,4 +1,3 @@
-
 import { NextFunction, Request, Response } from "express";
 import { Repository } from "typeorm";
 import User from "../entities/user.entity";
