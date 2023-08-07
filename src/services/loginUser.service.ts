@@ -13,9 +13,9 @@ export const loginUserService = async (loginData: TLogin) => {
     where: {
       email: loginData.email,
     },
-    relations:{
-      client: true
-    }
+    relations: {
+      client: true,
+    },
   });
 
   if (!findUser) {
@@ -31,8 +31,7 @@ export const loginUserService = async (loginData: TLogin) => {
     expiresIn: "1d",
   });
 
-  let response = [token, findUser ]
-   console.log(response[1], "///////////////////////////////")
+  let response = [token, findUser];
 
   return response;
 };

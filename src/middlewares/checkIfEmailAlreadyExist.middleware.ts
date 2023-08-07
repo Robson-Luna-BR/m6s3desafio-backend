@@ -14,7 +14,7 @@ export const checkIfEmailAlreadyExist = async (
   const checkEmail: TUserRequest | null = await userRepository.findOneBy({
     email: req.body.email,
   });
-console.log(req.body.email,"*/*/*//**/*//*/*/*/**/")
+
   if (checkEmail) {
     throw new AppError("Email already exists", 409);
   }
